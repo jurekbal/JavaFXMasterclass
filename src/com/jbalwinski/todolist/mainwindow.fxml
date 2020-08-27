@@ -16,7 +16,7 @@
         <VBox style="-fx-background-color: white">
             <TextArea fx:id="itemDetailsTextArea" VBox.vgrow="ALWAYS"/>
             <HBox>
-                <Label text="Due " style="-fx-background-color: white">
+                <Label text="Due: " style="-fx-background-color: white">
                     <font>
                         <Font name="Times New Roman Bold" size="20"/>
                     </font>

@@ -1,5 +1,6 @@
 package com.jbalwinski.todolist;
 
+import com.jbalwinski.todolist.datamodel.TodoData;
 import com.jbalwinski.todolist.datamodel.TodoItem;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -11,8 +12,10 @@ import javafx.scene.control.TextArea;
 
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Controller {
 
@@ -28,23 +31,25 @@ public class Controller {
     private Label deadlineLabel;
 
     public void initialize() {
-        TodoItem item1 = new TodoItem("Buy flowers", "Buy flowers form moms birthday",
-                LocalDate.of(2020, Month.DECEMBER, 10));
-        TodoItem item2 = new TodoItem("Call plumber", "Fix tap in bathroom",
-                LocalDate.of(2020, Month.SEPTEMBER, 1));
-        TodoItem item3 = new TodoItem("John's performance at school", "Be 15 before 4 pm.",
-                LocalDate.of(2020, Month.NOVEMBER, 16));
-        TodoItem item4 = new TodoItem("Last day before Christmas", "Check presents list",
-                LocalDate.of(2020, Month.DECEMBER, 23));
-        TodoItem item5 = new TodoItem("Call Merry", "I promised her hangout just after NY",
-                LocalDate.of(2021, Month.JANUARY, 2));
-
-        todoItems = new ArrayList<TodoItem>();
-        todoItems.add(item1);
-        todoItems.add(item2);
-        todoItems.add(item3);
-        todoItems.add(item4);
-        todoItems.add(item5);
+//        TodoItem item1 = new TodoItem("Buy flowers", "Buy flowers form moms birthday",
+//                LocalDate.of(2020, Month.DECEMBER, 10));
+//        TodoItem item2 = new TodoItem("Call plumber", "Fix tap in bathroom",
+//                LocalDate.of(2020, Month.SEPTEMBER, 1));
+//        TodoItem item3 = new TodoItem("John's performance at school", "Be 15 before 4 pm.",
+//                LocalDate.of(2020, Month.NOVEMBER, 16));
+//        TodoItem item4 = new TodoItem("Last day before Christmas", "Check presents list",
+//                LocalDate.of(2020, Month.DECEMBER, 23));
+//        TodoItem item5 = new TodoItem("Call Merry", "I promised her hangout just after NY",
+//                LocalDate.of(2021, Month.JANUARY, 2));
+//
+//        todoItems = new ArrayList<TodoItem>();
+//        todoItems.add(item1);
+//        todoItems.add(item2);
+//        todoItems.add(item3);
+//        todoItems.add(item4);
+//        todoItems.add(item5);
+//
+//        TodoData.getInstance().setTodoItems(todoItems);
 
         todoListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TodoItem>() {
             @Override
@@ -52,12 +57,13 @@ public class Controller {
                 if(newValue != null) {
                     TodoItem item = todoListView.getSelectionModel().getSelectedItem();
                         itemDetailsTextArea.setText(item.getDetails());
-                        deadlineLabel.setText(item.getDeadline().toString());
+                        DateTimeFormatter df = DateTimeFormatter.ofPattern("d MMMM, yyyy", Locale.ENGLISH);
+                        deadlineLabel.setText(df.format(item.getDeadline()));
                 }
             }
         });
 
-        todoListView.getItems().setAll(todoItems);
+        todoListView.getItems().setAll(TodoData.getInstance().getTodoItems());
         todoListView.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         todoListView.getSelectionModel().selectFirst();
         }
