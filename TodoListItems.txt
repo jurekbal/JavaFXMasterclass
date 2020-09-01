@@ -6,3 +6,5 @@ Call Merry	I promised her hangout just after NY	02-01-2021
 New TDI	New todo item	04-09-2020
 Another new task	Just another task.	02-09-2020
 Yet another todo item	Desc.	01-10-2020
+New List type ObservableList	ObservableList is used instead of List	01-09-2020
+gght	ggdfgsdfgsg gfdg dfg fdsg gdg sdfggeaARHETRHE DG DA HGQAE Gs gsag eagr ag agr gadg ag ag dg dg a gaed gadg adg ag agre dh dfsdfhg ha dsfgh afdghdsahdsahf sdfh sh sh .	08-09-2020
