@@ -1,10 +1,10 @@
-# What is this code?
+# What is this?
 
-This is code based on Udemy Java Masterclass by Tim Buchalka lesson - written for my learning purposes and possibly with some my modifications.
+This is code is a rewrite done while learning form Udemy Java Masterclass by Tim Buchalka (possibly with some my modifications).
 
-## Topics
-Java FX Controls
+## Topics covered
+Java FX practical project - Todo List
 
-## Content info
+## Other info
 
-Check commited snapshots for different point of the topic. The commits were made after every an step, topic or element described.
+I highly recommend taking Tim's course on Udemy.  
